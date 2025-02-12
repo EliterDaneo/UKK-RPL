@@ -3,8 +3,13 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
+            @if (session('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('success') }}
+                </div>
+            @endif
             <div class="col-md-8">
-                <div class="card shadow-s">
+                <div class="card shadow-sm">
                     <div class="card-header">{{ __('Daftar User') }}</div>
 
                     <div class="card-body">
@@ -29,8 +34,13 @@
                                         <td><img src="{{ asset('storage/public/' . $user->image ?? 'Tidak ada Gambar') }}"
                                                 alt="profile" width="60px"></td>
                                         <td>
-                                            <a href="">Edit</a>
-                                            <a href="">Hapus</a>
+                                            <a href="{{ route('user.edit', $user->id) }}"
+                                                class="btn btn-outline-primary">Edit</a>
+                                            <form action="{{ route('user.destroy', $user->id) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-outline-danger">Hapus</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @empty
