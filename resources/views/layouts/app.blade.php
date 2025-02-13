@@ -39,6 +39,9 @@
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="{{ route('user.index') }}">User</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{{ route('produk.index') }}">Produk</a>
+                            </li>
                         @endauth
                     </ul>
 
