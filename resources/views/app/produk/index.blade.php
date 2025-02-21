@@ -26,18 +26,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @forelse ($users as $no => $user)
+                            @forelse ($produks as $no => $product)
                                 <tr>
                                     <th scope="row">{{ ++$no }}</th>
-                                    <td>{{ $user->name }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td>{{ $user->role }}</td>
-                                    <td><img src="{{ asset('storage/public/' . $user->image ?? 'Tidak ada Gambar') }}"
+                                    <td>{{ $product->name }}</td>
+                                    <td>{{ $product->price }}</td>
+                                    <td>{{ $product->stok }}</td>
+                                    <td><img src="{{ asset('storage/public/' . $product->image ?? 'Tidak ada Gambar') }}"
                                             alt="profile" width="60px"></td>
                                     <td>
-                                        <a href="{{ route('user.edit', $user->id) }}"
+                                        <a href="{{ route('produk.edit', $product->id) }}"
                                             class="btn btn-outline-primary">Edit</a>
-                                        <form action="{{ route('user.destroy', $user->id) }}" method="post">
+                                        <form action="{{ route('produk.destroy', $product->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-outline-danger">Hapus</button>
@@ -48,7 +48,7 @@
                                 <tr>
                                     <td colspan="6">Tidak ada data</td>
                                 </tr>
-                            @endforelse --}}
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
